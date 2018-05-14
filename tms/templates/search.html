@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Page: {{ response['page'] }}
-Total Results: {{ response['total_results'] }}
-Total Pages: {{ response['total_pages'] }}
-{% for result in response['results'] %}
+
+<div class="search-container">
+    <input class="search-box" name="query" value="{{ query }}" />
+    <input type="hidden" name="page" value="1" />
+    <input class="submit" type="submit" value="Search" />
+</div>
+
+{% if results %}
+Page {{ page }} of {{ total_pages }}
+Total Results: {{ total_results }}
+
+{% for result in results %}
 <section class="result-item">
-{{ result }}
+    <img src="https://image.tmdb.org/t/p/w154/{{ result['poster_path'] }}"
+         alt="Poster for {{ result['title'] }}" />
+    <div>
+        <h1><a href="{{ url_for('details.details', id=result['id']) }}">{{ result['title'] }}</a></h1>
+        <p>Release Date: {{ result['release_date'] }}</p>
+        <p>{{ result['overview'] }}</p>
+    </div>
 </section>
-{% endfor %} 
-{% endblock %}
+{% endfor %}
+
+<div class="page-control">
+    {% if page > 1 %}
+    <a href="{{ url_for('search.search', query=query, page=page-1) }}">Previous</a>
+    {% endif %}
+    {% if page < total_pages and page <= 1000 %}
+    <a href="{{ url_for('search.search', query=query, page=page+1) }}">Next</a>
+    {% endif %}
+</div>
+
+{% else %}
+No results found.
+{% endif %}
+
+{% endblock content %}

@@ -2,10 +2,15 @@
 
 {% block content %}
 
-<h1>The Movie Search</h1>
-<form action="{{ url_for('search.search') }}" method="GET">
-    <input name="query" />
-    <input type="submit" />
-</form>
+<div class="main-container">
+    <h1>The Movie Search</h1>
+    <form action="{{ url_for('search.search') }}" method="GET">
+        <div class="search-container">
+            <input class="search-box" name="query" />
+            <input type="hidden" name="page" value="1" />
+            <input class="submit" type="submit" value="Search" />
+        </div>
+    </form>
+</div>
 
-{% endblock %}
+{% endblock content %}

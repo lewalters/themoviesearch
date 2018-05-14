@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<img src="https://image.tmdb.org/t/p/w342/{{ details['poster_path'] }}"
+alt="Poster for {{ details['title'] }}" />
+<div>
+    <h1>{{ details['title'] }}</h1>
+    <p>
+        Release Date: {{ details['release_date'] }}
+        {% if details['runtime'] %}
+        <br />Runtime: {{ details['runtime'] }} minutes
+        {% endif %}
+    </p>
+    <p>{{ details['overview'] }}</p>
+</div>
+{{ details }}
+{% endblock content %}
