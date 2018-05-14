@@ -1,1 +1,1 @@
-web gunicorn tms:app
+web gunicorn "tms:create_app()"
