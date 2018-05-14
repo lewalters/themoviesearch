@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Page: {{ response['page'] }}
+Total Results: {{ response['total_results'] }}
+Total Pages: {{ response['total_pages'] }}
+{% for result in response['results'] %}
+<section class="result-item">
+{{ result }}
+</section>
+{% endfor %} 
+{% endblock %}

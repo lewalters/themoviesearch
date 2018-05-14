@@ -4,8 +4,10 @@ def create_app():
 
     app = Flask(__name__)
     
-    @app.route('/')
-    def movies():
-        return 'The Movie Search'
+    from tms import index
+    app.register_blueprint(index.bp)
+
+    from tms import search
+    app.register_blueprint(search.bp)
 
     return app

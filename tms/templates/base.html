@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>The Movie Search</title>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    </head>
+    <body>
+        <div class="content">
+        {% block content %}{% endblock %}
+        </div>
+        <footer>
+            <span>Trey Walters</span>
+            <span id="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb.</span>
+        </footer>
+    </body>
+</html>
