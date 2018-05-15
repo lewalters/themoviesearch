@@ -1,6 +1,9 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: #FAFAFA;
 }
 
 body {
@@ -9,9 +12,18 @@ body {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+}
+
+header {
+    width: 70%;
+}
+
 .content {
     flex: 1 0;
     width: 70%;
+    margin: 10px 0;
 }
 
 .main-container {
@@ -43,18 +55,90 @@ body {
 
 .submit {
     flex-grow: 1;
+    border: 2px solid black;
     background-color: black;
     color: white;
+}
+
+.submit:hover {
+    background-color: white;
+    color: black;
+}
+
+.result-stats {
+    margin-bottom: 10px;
+}
+
+#total-results {
+    float: right;
 }
 
 .result-item {
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 5px 0;
 }
 
 .result-item div {
     padding-left: 10px;
+}
+
+.overview {
+    font-style: italic;
+}
+
+.page-control {
+    margin-top: 10px;
+}
+
+button {
+    height: 40px;
+    width: 120px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+#next {
+    float: right;
+}
+
+.details {
+    display: flex;
+    margin: 10px 0;
+}
+
+.details img {
+    margin-right: 5px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.info div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#imdb {
+    width: 100px;
+    height: 50px;
+}
+
+#overview {
+    align-self: flex-start;
 }
 
 footer {
@@ -62,6 +146,7 @@ footer {
     align-self: stretch;
     background-color: black;
     color: white;
+    padding: 8px;
 }
 
 footer #tmdb {

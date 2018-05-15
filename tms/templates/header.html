@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<header>
+    <form action="{{ url_for('search.search') }}" method="GET">
+        <div class="search-container">
+            <input class="search-box" name="query" value="{{ query }}" />
+            <input type="hidden" name="page" value="1" />
+            <input class="submit" type="submit" value="Search" />
+        </div>
+    </form>
+</header>
+{% endblock header %}

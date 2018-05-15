@@ -1,35 +1,55 @@
-{% extends 'base.html' %}
+{% extends 'header.html' %}
 
 {% block content %}
 
-<div class="search-container">
-    <input class="search-box" name="query" value="{{ query }}" />
-    <input type="hidden" name="page" value="1" />
-    <input class="submit" type="submit" value="Search" />
-</div>
-
 {% if results %}
-Page {{ page }} of {{ total_pages }}
-Total Results: {{ total_results }}
+<div class="result-stats">
+    <span>Page {{ page }} of {{ total_pages }}</span>
+    <span id="total-results">{{ total_results }} total results</span>
+</div>
 
 {% for result in results %}
 <section class="result-item">
+    {% if result['poster_path'] %}
     <img src="https://image.tmdb.org/t/p/w154/{{ result['poster_path'] }}"
          alt="Poster for {{ result['title'] }}" />
+    {% else %}
+    <img src="http://via.placeholder.com/154x231/ABB2B9/FFFFFF?text=?"
+         alt="Placeholder for {{ result['title'] }} poster" />
+    {% endif %}
     <div>
-        <h1><a href="{{ url_for('details.details', id=result['id']) }}">{{ result['title'] }}</a></h1>
-        <p>Release Date: {{ result['release_date'] }}</p>
-        <p>{{ result['overview'] }}</p>
+        <h1>
+            {% if result['overview'] %}
+            <a href="{{ url_for('details.details', id=result['id']) }}">{{ result['title'] }}</a>
+            {% else %}
+            {{ result['title'] }}
+            {% endif %}
+        </h1>
+        <p>
+            Release Date:
+            {% if result['release_date'] %}
+            {{ result['release_date'] }}
+            {% else %}
+            Unknown
+            {% endif %}
+        </p>
+        <p class="overview">
+            {% if result['overview']|length > 150 %}
+            {{ result['overview'][:150] }}...
+            {% else %}
+            {{ result['overview'] }}
+            {% endif %}
+        </p>
     </div>
 </section>
 {% endfor %}
 
 <div class="page-control">
     {% if page > 1 %}
-    <a href="{{ url_for('search.search', query=query, page=page-1) }}">Previous</a>
+    <a href="{{ url_for('search.search', query=query, page=page-1) }}"><button>Previous</button></a>
     {% endif %}
     {% if page < total_pages and page <= 1000 %}
-    <a href="{{ url_for('search.search', query=query, page=page+1) }}">Next</a>
+    <a id="next" href="{{ url_for('search.search', query=query, page=page+1) }}"><button>Next</button></a>
     {% endif %}
 </div>
 

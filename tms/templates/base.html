@@ -7,12 +7,13 @@
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     </head>
     <body>
+        {% block header %}{% endblock header %}
         <div class="content">
         {% block content %}{% endblock content %}
         </div>
         <footer>
-            <span>Trey Walters</span>
-            <span id="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb.</span>
+            <span>Site design by Trey Walters</span>
+            <span id="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb</span>
         </footer>
     </body>
 </html>
