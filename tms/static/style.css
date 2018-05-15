@@ -4,6 +4,7 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     background-color: #FAFAFA;
+    min-width: 600px;
 }
 
 body {
@@ -16,8 +17,20 @@ a {
     text-decoration: none;
 }
 
+#tms-link {
+    position: fixed;
+    align-self: flex-start;
+    width: 15%;
+    margin-top: 10px;
+}
+
+#tms-logo {
+    width: 100%;
+}
+
 header {
     width: 70%;
+    margin-top: 10px;
 }
 
 .content {
@@ -26,16 +39,17 @@ header {
     margin: 10px 0;
 }
 
-.main-container {
+.index-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80%;
+    width: 100%;
 }
 
-.main-container form {
-    width: 80%;
+.index-container form {
+    width: 100%;
 }
 
 .search-container {
@@ -65,6 +79,15 @@ header {
     color: black;
 }
 
+#tmdb-link {
+    align-self: flex-end;
+    margin-top: 5px;
+}
+
+#tmdb-img {
+    width: 100px;
+}
+
 .result-stats {
     margin-bottom: 10px;
 }
@@ -74,7 +97,7 @@ header {
 }
 
 .result-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     padding: 5px 0;
 }
@@ -121,8 +144,12 @@ button:hover {
 .info {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
+    margin-left: 10px;
+}
+
+.info h1 {
+    text-align: center;
 }
 
 .info div {
@@ -146,9 +173,21 @@ footer {
     align-self: stretch;
     background-color: black;
     color: white;
-    padding: 8px;
+    padding: 10px;
 }
 
-footer #tmdb {
+.disclaimer-right {
     float: right;
+}
+
+#footer2 {
+    display: none;
+}
+
+footer:hover #footer1 {
+    display: none;
+}
+
+footer:hover #footer2 {
+    display: inline;
 }

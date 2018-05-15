@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block logo %}
+<a id="tms-link" href="{{ url_for('index.index') }}">
+    <img id="tms-logo" src="{{ url_for('static', filename='logo-square.png') }}" alt="Search logo and link to index page" />
+</a>
+{% endblock logo %}
+
 {% block header %}
 <header>
     <form action="{{ url_for('search.search') }}" method="GET">

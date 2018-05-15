@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class="main-container">
-    <h1>The Movie Search</h1>
+<div class="index-container">
+    <h1><img src="{{ url_for('static', filename='logo-main.png') }}" alt="The Movie Search" /></h1>
     <form action="{{ url_for('search.search') }}" method="GET">
         <div class="search-container">
             <input class="search-box" name="query" />
@@ -11,6 +11,10 @@
             <input class="submit" type="submit" value="Search" />
         </div>
     </form>
+    <a id="tmdb-link" href="https://www.themoviedb.org/" target="_blank">
+        <img id="tmdb-img" src="{{ url_for('static', filename='logo-tmdb.png') }}" alt="The Movie Database logo and link" />
+    </a>
 </div>
+
 
 {% endblock content %}

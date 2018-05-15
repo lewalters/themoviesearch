@@ -7,13 +7,20 @@
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     </head>
     <body>
+        {% block logo %}{% endblock logo %}
         {% block header %}{% endblock header %}
         <div class="content">
         {% block content %}{% endblock content %}
         </div>
         <footer>
-            <span>Site design by Trey Walters</span>
-            <span id="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb</span>
+            <span id="footer1">
+                <span>Site design by Trey Walters</span>
+                <span class="disclaimer-right">This product uses the TMDb API but is not endorsed or certified by TMDb</span>
+            </span>
+            <span id="footer2">
+                <span>Logos made possible by Canva</span>
+                <span class="disclaimer-right">Placeholder images provided by Placeholder.com</span>
+            </span>
         </footer>
     </body>
 </html>

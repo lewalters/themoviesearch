@@ -3,8 +3,13 @@
 {% block content %}
 
 <div class="details">
+    {% if details['poster_path'] %}
     <img src="https://image.tmdb.org/t/p/w342/{{ details['poster_path'] }}"
-    alt="Poster for {{ details['title'] }}" />
+         alt="Poster for {{ details['title'] }}" />
+    {% else %}
+    <img src="http://via.placeholder.com/342x513/ABB2B9/FFFFFF?text=?"
+         alt="Placeholder for {{ details['title'] }} poster" />
+    {% endif %}
     <div class="info">
         <h1>{{ details['title'] }}</h1>
         <div>
@@ -30,6 +35,5 @@
         <p id="overview">{{ details['overview'] }}</p>
     </div>
 </div>
-{{ details }}
 
 {% endblock content %}
