@@ -15,6 +15,11 @@ body {
 
 a {
     text-decoration: none;
+    color: #0000CC;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 #tms-link {
@@ -108,6 +113,10 @@ header {
 
 .overview {
     font-style: italic;
+}
+
+.overview span {
+    font-style: normal;
 }
 
 .page-control {

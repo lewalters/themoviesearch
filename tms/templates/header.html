@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{# Secondary base template for search and details pages adding a fixed logo link to
+   the home page and a search box header #}
+
 {% block logo %}
 <a id="tms-link" href="{{ url_for('index.index') }}">
     <img id="tms-logo" src="{{ url_for('static', filename='logo-square.png') }}" alt="Search logo and link to index page" />

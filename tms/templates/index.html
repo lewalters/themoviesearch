@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{# Home page with a simple search box a la Google or Duck Duck Go #}
+
 {% block content %}
 
 <div class="index-container">
@@ -15,6 +17,5 @@
         <img id="tmdb-img" src="{{ url_for('static', filename='logo-tmdb.png') }}" alt="The Movie Database logo and link" />
     </a>
 </div>
-
 
 {% endblock content %}
