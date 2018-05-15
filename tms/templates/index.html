@@ -8,7 +8,7 @@
     <h1><img src="{{ url_for('static', filename='logo-main.png') }}" alt="The Movie Search" /></h1>
     <form action="{{ url_for('search.search') }}" method="GET">
         <div class="search-container">
-            <input class="search-box" name="query" />
+            <input class="search-box" name="query" required />
             <input type="hidden" name="page" value="1" />
             <input class="submit" type="submit" value="Search" />
         </div>
