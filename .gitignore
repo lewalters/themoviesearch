@@ -1,1 +1,8 @@
+# Directories
 .DS_Store
+.vscode
+__pycache__
+__pypackages__
+
+# Files
+.pdm.toml
